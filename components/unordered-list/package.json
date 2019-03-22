@@ -5,7 +5,7 @@
     "@govuk-react/ordered-list": "^0.7.0"
   },
   "peerDependencies": {
-    "react": ">=16.2.0",
+    "react": ">=16.8.5",
     "styled-components": ">=4"
   },
   "scripts": {
