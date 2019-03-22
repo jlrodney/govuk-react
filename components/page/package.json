@@ -7,7 +7,7 @@
     "@govuk-react/top-nav": "^0.7.0"
   },
   "peerDependencies": {
-    "react": ">=15",
+    "react": ">=16.8.5",
     "styled-components": ">=4"
   },
   "scripts": {
