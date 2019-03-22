@@ -64,7 +64,7 @@
     "storybook-readme": "^5.0.1"
   },
   "peerDependencies": {
-    "react": ">=16.2.0"
+    "react": ">=16.8.5"
   },
   "devDependencies": {
     "babel-loader": "^8.0.4",
