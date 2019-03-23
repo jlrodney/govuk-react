@@ -10,7 +10,7 @@
   },
   "peerDependencies": {
     "react": ">=16.2.0",
-    "styled-components": ">=4"
+    "styled-components": ">=4.2.0"
   },
   "devDependencies": {
     "react-transition-group": "^2.2.1"
