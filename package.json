@@ -86,7 +86,7 @@
     "mkdirp-promise": "^5.0.1",
     "prettier": "^1.16.4",
     "prop-types": "^15.6.0",
-    "react": "^16.8.4",
+    "react": "^16.8.6",
     "react-docgen": "^4.1.0",
     "react-dom": "^16.8.4",
     "react-final-form": "^4.1.0",
