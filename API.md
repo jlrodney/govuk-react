@@ -218,7 +218,7 @@ Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
  `children` | true | `````` | node | Text content for checkbox
  `className` |  | ```undefined``` | string | CSS Classname for outermost container
- `hint` |  | ```undefined``` | node | 
+ `hint` |  | ```undefined``` | node |
 
 
 DateField
@@ -273,8 +273,8 @@ With custom input name props
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `defaultValues` |  | ```{   day: undefined,   month: undefined,   year: undefined, }``` | custom | 
+ `children` | true | `````` | node |
+ `defaultValues` |  | ```{   day: undefined,   month: undefined,   year: undefined, }``` | custom |
  `errorText` |  | ```undefined``` | string | Error text
  `hintText` |  | ```undefined``` | string | Optional hint text
  `input` |  | ```undefined``` | shape[object Object] | Properties that are sent to the input, matching final form and redux form input type
@@ -522,7 +522,7 @@ Custom legend
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
+ `children` | true | `````` | node |
 
 
 FileUpload
@@ -575,10 +575,94 @@ const meta = {
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `acceptedFormats` |  | ```undefined``` | string | 
- `children` | true | `````` | node | 
+ `acceptedFormats` |  | ```undefined``` | string |
+ `children` | true | `````` | node |
  `hint` |  | ```undefined``` | string | Optional hint text
  `meta` |  | ```{}``` | shape[object Object] | Final form meta object, pending adjustment/removal
+
+
+Footer
+======
+
+### Import
+```js
+  import Footer from '@govuk-react/footer';
+```
+<!-- STORY -->
+
+### Usage
+
+Simple
+```jsx
+<Footer />
+```
+
+Footer with Copyright information
+```jsx
+// Import self hosted copyright image
+import crest from './govuk-crest.png';
+
+<Footer
+  copyright={{
+    text: 'Crown copyright',
+    link:
+      'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/',
+    image: {
+      source: crest,
+      height: 102,
+      width: 125,
+    },
+  }}
+/>;
+```
+
+Footer with navigation.  There is also the option to provide footer links with, or without React/Reach Router.
+```jsx
+import { Link } from 'react-router-dom';
+
+<Footer>
+  <Footer.Navigation>
+    <Footer.NavigationLinks heading="Two column list" listColumns={2}>
+    <Footer.NavigationLinks heading="Two column list" listColumns="2">
+</Footer>
+```
+
+Footer with links in meta area
+```jsx
+<Footer meta={
+    <Footer.MetaLinks heading="Support links">
+      <Footer.Link href="/">Item 1</Footer.Link>
+      <Footer.Link to="/footer-meta-item-2" as={Link}>Item 2 (Router Link)</Footer.Link>
+      <Footer.Link href="/">Item 3</Footer.Link>
+    </Footer.MetaLinks>
+  }
+/>
+```
+
+Footer with custom content in meta area
+```jsx
+<Footer meta={
+    <Footer.MetaCustom>
+      Built by the <Footer.Link href="/">Government Digital Service</Footer.Link>
+    </Footer.MetaCustom>
+  }
+/>
+```
+
+NB <Footer.Link /> is styled extention of @govuk-react/link
+
+### References:
+- https://design-system.service.gov.uk/components/footer/
+- https://github.com/alphagov/govuk-frontend/blob/master/src/components/footer/template.njk
+- https://github.com/alphagov/govuk-frontend/blob/master/src/components/footer/_footer.scss
+
+### Properties
+Prop | Required | Default | Type | Description
+:--- | :------- | :------ | :--- | :----------
+ `children` |  | ```undefined``` | node | Footer navigation links
+ `container` |  | ```Footer.WidthContainer``` | func | Override the default footer container component.<br/>`children`, `copyright` and `meta` will be placed inside this component.
+ `copyright` |  | ```undefined``` | shape[object Object] | Copyright information
+ `meta` |  | ```undefined``` | node | Meta text and links
 
 
 FormGroup
@@ -607,8 +691,8 @@ import Checkbox from '@govuk-react/checkbox';
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `error` |  | ```false``` | bool | 
+ `children` | true | `````` | node |
+ `error` |  | ```false``` | bool |
 
 
 GridCol
@@ -889,10 +973,10 @@ Input with hint text & error
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `hint` |  | ```undefined``` | node | 
- `input` |  | ```{}``` | shape[object Object] | 
- `meta` |  | ```{}``` | shape[object Object] | 
+ `children` | true | `````` | node |
+ `hint` |  | ```undefined``` | node |
+ `input` |  | ```{}``` | shape[object Object] |
+ `meta` |  | ```{}``` | shape[object Object] |
 
 
 Input
@@ -947,7 +1031,7 @@ InsetText
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
+ `children` | true | `````` | node |
 
 
 LabelText
@@ -1317,10 +1401,10 @@ import Radio from '@govuk-react/radio';
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `hint` |  | ```undefined``` | string | 
- `label` | true | `````` | node | 
- `meta` |  | ```{}``` | shape[object Object] | 
+ `children` | true | `````` | node |
+ `hint` |  | ```undefined``` | string |
+ `label` | true | `````` | node |
+ `meta` |  | ```{}``` | shape[object Object] |
 
 
 OrderedList
@@ -1547,7 +1631,7 @@ const ReactRouterLinkRenderer = ({ href, children }) => (
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
  `children` |  | ```''``` | node | Text content supporting markdown
- `linkRenderer` |  | ```props => <Link {...props} />``` | func | 
+ `linkRenderer` |  | ```props => <Link {...props} />``` | func |
  `supportingText` |  | ```false``` | bool | Is this paragraph supporting text for another element?
 
 
@@ -1671,10 +1755,10 @@ Radio with hint text
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `className` |  | ```undefined``` | string | 
- `hint` |  | ```undefined``` | node | 
- `inline` |  | ```false``` | bool | 
+ `children` | true | `````` | node |
+ `className` |  | ```undefined``` | string |
+ `hint` |  | ```undefined``` | node |
+ `inline` |  | ```false``` | bool |
 
 
 RelatedItems
@@ -1749,7 +1833,7 @@ import GridCol from '@govuk-react/grid-col';
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `placeholder` |  | ```undefined``` | string | 
+ `placeholder` |  | ```undefined``` | string |
 
 
 SectionBreak
@@ -1775,8 +1859,8 @@ Simple
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `level` |  | `````` | enum('XL' \| 'XLARGE' \| 'L' \| 'LARGE' \| 'M' \| 'MEDIUM') | 
- `visible` |  | ```undefined``` | bool | 
+ `level` |  | `````` | enum('XL' \| 'XLARGE' \| 'L' \| 'LARGE' \| 'M' \| 'MEDIUM') |
+ `visible` |  | ```undefined``` | bool |
 
 
 Select
@@ -1857,12 +1941,12 @@ import { SelectInput } '@govuk-react/select';
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `errorText` |  | ```undefined``` | string | 
- `hint` |  | ```undefined``` | string | 
- `input` |  | ```{}``` | shape[object Object] | 
- `label` | true | `````` | string | 
- `meta` |  | ```{}``` | shape[object Object] | 
+ `children` | true | `````` | node |
+ `errorText` |  | ```undefined``` | string |
+ `hint` |  | ```undefined``` | string |
+ `input` |  | ```{}``` | shape[object Object] |
+ `label` | true | `````` | string |
+ `meta` |  | ```{}``` | shape[object Object] |
 
 
 SkipLink
@@ -1890,8 +1974,8 @@ Simple
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` |  | ```'Skip to main content'``` | node | 
- `href` |  | ```'#content'``` | string | 
+ `children` |  | ```'Skip to main content'``` | node |
+ `href` |  | ```'#content'``` | string |
 
 
 SupportingHeader
@@ -2181,7 +2265,7 @@ Simple
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `inactive` |  | ```false``` | bool | 
+ `inactive` |  | ```false``` | bool |
 
 
 TextArea
@@ -2229,10 +2313,10 @@ const meta = {
 ### Properties
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
- `children` | true | `````` | node | 
- `hint` |  | ```undefined``` | string | 
- `input` |  | ```{}``` | shape[object Object] | 
- `meta` |  | ```{}``` | shape[object Object] | 
+ `children` | true | `````` | node |
+ `hint` |  | ```undefined``` | string |
+ `input` |  | ```{}``` | shape[object Object] |
+ `meta` |  | ```{}``` | shape[object Object] |
 
 
 TopNav
@@ -2430,5 +2514,3 @@ Simple
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
  `children` | true | `````` | node | Warning text to be displayed
-
-
